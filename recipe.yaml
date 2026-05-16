@@ -1,0 +1,44 @@
+# this recipe is for local building
+# see https://github.com/conda-forge/conda-tree-feedstock/blob/master/recipe/meta.yaml
+# for the conda-forge recipe
+schema_version: 1
+
+package:
+  name: conda-tree
+  version: "1.2.0"
+
+source:
+  path: .
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - ${{ PYTHON }} -m pip install . --no-deps -vv
+  python:
+    entry_points:
+      - conda-tree = conda_tree.cli:main
+
+requirements:
+  host:
+    - python >=3.10
+    - pip
+    - hatchling
+  run:
+    - python >=3.10
+    - networkx >=2.0
+    - conda >=25.0
+    - colorama
+
+tests:
+  - script:
+      - conda-tree -h
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: conda dependency tree helper
+  homepage: https://github.com/rvalieris/conda-tree
+  repository: https://github.com/rvalieris/conda-tree
+  documentation: https://github.com/rvalieris/conda-tree
+
