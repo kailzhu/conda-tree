@@ -4,7 +4,7 @@
 
 package:
   name: conda-tree
-  version: dev
+  version: 1.2.0
 
 source:
   path: .
@@ -15,17 +15,17 @@ build:
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
-    - conda-tree = conda_tree:main
+    - conda-tree = conda_tree.cli:main
 
 requirements:
   host:
-    - python
+    - python >=3.10
     - pip
-    - setuptools
+    - hatchling
   run:
-    - python
-    - networkx
-    - conda
+    - python >=3.10
+    - networkx >=2.0
+    - conda >=25.0
     - colorama
 
 test:
