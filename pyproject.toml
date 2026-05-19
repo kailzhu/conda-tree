@@ -30,9 +30,6 @@ packages = ["conda_tree"]
 [tool.pixi.workspace]
 channels = ["conda-forge"]
 platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64"]
-# Suppress the remote conda-pypi mapping fetch; conda packages in
-# [tool.pixi.dependencies] already override the pypi deps from [project.dependencies].
-conda-pypi-map = { "conda-forge" = "conda_pypi_map.json" }
 
 [tool.pixi.dependencies]
 python = ">=3.10"
@@ -40,12 +37,8 @@ conda = ">=25.0"
 networkx = ">=2.0"
 colorama = "*"
 
-# conda-tree is installed into the pixi environment via:
-#   pixi run pip install -e .
-# after `pixi install` completes. This avoids requiring the conda-pypi
-# mapping fetch that fails in network-restricted environments.
-# [tool.pixi.pypi-dependencies]
-# conda-tree = { path = ".", editable = true }
+[tool.pixi.pypi-dependencies]
+conda-tree = { path = ".", editable = true }
 
 [tool.pixi.tasks]
 test      = "pytest tests/ -v"
