@@ -16,9 +16,9 @@ from colorama import Style
 
 from conda.core.prefix_data import PrefixData
 
-colorama.init()
+from . import __version__
 
-__version__ = "1.2.0"
+colorama.init()
 
 # The number of spaces per indent level
 TABSIZE = 3
