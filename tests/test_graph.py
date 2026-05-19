@@ -8,7 +8,6 @@ MockRecord namedtuples defined in conftest.py.
 from __future__ import annotations
 
 import networkx
-import pytest
 
 from conda_tree.cli import find_reachable_pkgs, is_node_reachable, make_cache_graph
 

@@ -5,8 +5,6 @@ from __future__ import annotations
 
 import argparse
 
-import pytest
-
 from conda_tree.cli import make_cache_graph, print_dep_tree
 from tests.conftest import MockRecord
 
